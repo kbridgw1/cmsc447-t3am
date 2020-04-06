@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="header">
+    <a href="/"><img src="https://i.ibb.co/nbK3DMX/Screen-Shot-2020-04-06-at-5-04-58-PM.png" alt="logosmall" border="0" width="300" class="logo"></a>
+</div>
+<div class="header">
+    <img src="https://i.ibb.co/mBxxMLH/Screen-Shot-2020-04-06-at-5-05-41-PM.png" alt="title" border="0">
+</div>
+
+<div class="header">
+    <label for="states" style="font-size: 30px;">Choose a state:</label>
+    <select id="states">
+        <option value="MD">Maryland</option>
+    </select>
+</div>
+<div class="header">
+    <button class="topcorner view-country">View Country</button>
+</div>
+<div class="text-xs-center">
+    <button class="button">Current Distribution</button>
+    <button class="button">Democratic</button>
+    <button class="button">Swing</button>
+    <button class="button">Republican</button>
+</div>
+<br>
+<div class="row">
+    <div class="column left" style="background-color:#aaa;">
+        <br>
+        <p class="ex">MAP</p>
+        <br>
+        <p class="ex">GOES</p>
+        <br>
+        <p class="ex">HERE</p>
+        <br>
+    </div>
+    <div class="column right" style="background-color:#ccc;">
+        <br>
+        <p class="ex">INFO</p>
+        <br>
+        <p class="ex">GOES</p>
+        <br>
+        <p class="ex">HERE</p>
+        <br>
+    </div>
+</div>
+
+{% endblock %}

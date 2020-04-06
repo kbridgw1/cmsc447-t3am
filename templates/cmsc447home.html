@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+<head>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+{% block body %}
+    <div class="text-xs-center">
+        <img src="https://i.ibb.co/Xbp5wS8/gtlogobig.png" alt="gtlogobig" border="0">
+    </div>
+    <br>
+    <div class="text-xs-center">
+        <p>INTRO BLURB GOES HERE: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eleifend ex nec molestie tempor. Nullam eget lacus id massa suscipit congue vel sed lectus. Vivamus efficitur, augue ac hendrerit vestibulum, tortor tortor condimentum dolor, a maximus lectus eros nec felis. Morbi ullamcorper ac sem a ornare. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at mauris iaculis, tincidunt mauris non, consectetur neque. Integer nec turpis nec ante vulputate facilisis rhoncus id orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos</p>
+    </div>
+
+    <div class="text-xs-center">
+        <form method="POST" action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms of Service'); return false; }">
+            {{ form.csrf_token }}
+            <input type="checkbox" name="checkbox" value="check" id="agree" /> I have read and agree to the Terms of Service as listed <a href="/terms">here</a>
+            {{ form.recaptcha }}
+            <br>
+            <input type="submit" name="submit" value="Continue to Gerrymandering Tool">
+        </form>
+    </div>
+
+
+
+{% endblock %}
