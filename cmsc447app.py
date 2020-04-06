@@ -20,17 +20,17 @@ class Widgets(FlaskForm):
 def index():
     form = Widgets()
     if form.validate_on_submit():
-        return render_template('main.html')
-    return render_template('home.html', form=form)
+        return render_template('cmsc447main.html')
+    return render_template('cmsc447home.html', form=form)
 
 
 @app.route("/main", methods=["GET", "POST"])
 def main():
-    return render_template("main.html")
+    return render_template("cmsc447main.html")
 
 @app.route("/terms")
 def terms():
-    return render_template("terms.html")
+    return render_template("cmsc447terms.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
