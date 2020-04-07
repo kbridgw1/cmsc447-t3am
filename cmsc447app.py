@@ -31,7 +31,10 @@ def main():
 @app.route("/terms")
 def terms():
     return render_template("cmsc447terms.html")
+<<<<<<< HEAD
 
+=======
+>>>>>>> 16dd2c953e7b1c3f6a98c48be4bce216828f3c8d
 
 # run in debug mode
 if __name__ == '__main__':
