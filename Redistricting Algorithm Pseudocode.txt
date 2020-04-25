@@ -1,0 +1,78 @@
+DataStructure District
+	Precincts
+	BorderPrecincts
+	NumRepublicanVoters
+	NumDemocraticVoters
+	
+DataStructure Precinct
+	BoundaryBox
+	NumRepublicanVoters
+	NumDemocraticVoters
+	AssignedToDistrict
+	NeighboringPrecinctsInSameDistrict
+	NeighboringPrecinctsInOtherDisctricts
+	
+# Initialize districts
+for each district in Districts
+	precincts = []
+	borderPrecincts = []
+	NumRepublicanVoters = 0
+	NumDemocraticVoters
+
+# Initialize precinct neighbors and district voter counts
+while Precincts.Count > 0	
+	precinct1 = Precincts[0]
+	for each precinct2 in Precincts
+		if Overlap(precinct1.boundaryBox, precinct2.boundaryBox)
+			if precint1.assignedToDistrict != precinct2.assignedToDistrict
+				precinct1.NeighboringPrecinctsInOtherDisctricts.Add(precinct2)
+				precinct2.NeighboringPrecinctsInOtherDisctricts.Add(precinct1)
+			else
+				precinct1.NeighboringPrecinctsInSameDistrict.Add(precinct2)
+				precinct2.NeighboringPrecinctsInSameDistrict.Add(precinct1)
+	# At precinct1 has now been matched with all its neighbors, don't want to compare it any further
+	Precincts.Remove(precinct1)
+	Districts[precinct1.AssignedToDistrict].Precincts.Add(precinct1)
+	if precinct1.NeighboringPrecinctsInOtherDisctricts.Count > 0
+		Districts[precinct1.AssignedToDistrict].BorderPrecincts.Add(precinct1)
+	Districts[precinct1.assignedToDistrict].NumRepublicanVoters +=  precinct1.NumRepublicanVoters
+	Districts[precinct1.assignedToDistrict].NumDemocraticVoters +=  precinct1.NumDemocraticVoters
+	
+# Redistrict... 
+Redistrict(MajorityParty)
+# Determine if redistricting is needed
+	numDistrictsWithCorrectMajority = 0
+	firstToAdjust = []
+	minDifference = 0
+	for each district in Districts
+		if MajorityParty == "Democrat"
+			if district.NumDemocraticVoters >= district.NumRepublicanVoters
+				numDistrictsWithCorrectMajority++
+			else
+				if minDifference == 0
+					firstToAdjust = district
+					minDifference = district.NumDemocraticVoters - district.NumRepublicanVoters
+				else
+					if minDifference > (district.NumDemocraticVoters - district.NumRepublicanVoters)
+						firstToAdjust = district
+						minDifference = district.NumDemocraticVoters - district.NumRepublicanVoters
+		else
+			if district.NumRepublicanVoters >= district.NumDemocraticVoters
+				numDistrictsWithCorrectMajority++
+			else
+				if minDifference == 0
+					firstToAdjust = district
+					minDifference = district.NumRepublicanVoters - district.NumDemocraticVoters
+				else
+					if minDifference > (district.NumRepublicanVoters - district.NumDemocraticVoters)
+						firstToAdjust = district
+						minDifference = district.NumRepublicanVoters - district.NumDemocraticVoters
+	if numDistrictsWithCorrectMajority > (Districts.Count / 2)
+		return
+		
+TO BE CONTINUED...
+
+	
+	
+
+	
