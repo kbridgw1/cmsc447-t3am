@@ -1,6 +1,14 @@
-{% extends 'cmsc447layout.html' %}
 
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
 <div class="header">
     <a href="/"><img src="https://i.ibb.co/nbK3DMX/Screen-Shot-2020-04-06-at-5-04-58-PM.png" alt="logosmall" border="0" width="300" class="logo"></a>
 </div>
@@ -26,7 +34,9 @@
 <br>
 <div class="row">
     <div class="column left">
-        <div id="myDiv"></div>
+        <div>
+           
+        </div>
     </div>
     <div class="column right" style="background-color:#ccc;">
         <br>
@@ -38,5 +48,7 @@
         <br>
     </div>
 </div>
-
-{% endblock %}
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% extends 'index.html' %}
