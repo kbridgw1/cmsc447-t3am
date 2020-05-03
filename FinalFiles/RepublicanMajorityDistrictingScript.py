@@ -195,7 +195,7 @@ def writePrecinctsToCSV(filename, precinctList):
 districts = {}
     
 # Use pyshp library to read the shapefile
-sfRecords = shapefile.Reader("C:/Users/Denise/Documents/CMSC 447/UpdateStupidFiles/MaybeBetterDatas")
+sfRecords = shapefile.Reader("OriginalDistribution")
 
 precincts = []
 i = 0
@@ -344,7 +344,7 @@ for p in precincts:
         
 for p1 in precincts:
     p1.sfData[DISTRICT_FNAME] = p1.district.districtNum
-writePrecinctsToCSV('RepublicanRedistricting.csv',precincts)       
+writePrecinctsToCSV('RepublicanRedistricting1.csv',precincts)       
 
 # Print summary of districts
 print('District Summary')
