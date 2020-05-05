@@ -36,6 +36,13 @@ def main():
 def terms():
     return render_template("cmsc447terms.html")
 
+@app.route("/rep")
+def rep():
+    return render_template("main_rep.html")
+
+@app.route("/swing")
+def swing():
+    return render_template("main_swing.html")
 
 # run in debug mode
 if __name__ == '__main__':

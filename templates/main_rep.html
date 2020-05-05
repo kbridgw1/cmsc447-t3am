@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link type="text/css" rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="header">
+    <a href="/"><img src="https://i.ibb.co/nbK3DMX/Screen-Shot-2020-04-06-at-5-04-58-PM.png" alt="logosmall" border="0" width="300" class="logo"></a>
+</div>
+<div class="header">
+    <img src="https://i.ibb.co/mBxxMLH/Screen-Shot-2020-04-06-at-5-05-41-PM.png" alt="title" border="0">
+</div>
+
+<div class="header">
+    <label for="states" style="font-size: 30px;">Choose a state:</label>
+    <select id="states">
+        <option value="MD">Maryland</option>
+    </select>
+</div>
+<div class="header">
+    <button class="topcorner view-country">View Country</button>
+</div>
+<div class="text-xs-center">
+    <a href="/main" class="button">Current Distribution</a>
+    <a href="/main" class="button">Democratic</a>
+    <a href="/swing" class="button">Swing</a>
+    <a href="/rep" class="button">Republican</a>
+</div>
+<br>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
+{% extends 'repgeo.html' %}
