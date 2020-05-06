@@ -7,8 +7,11 @@ Created on Sat Apr 18 17:36:02 2020
 
 import shapefile
 from shapely.geometry import shape
+from shapely.ops import unary_union
 import csv
 import math
+from array import array
+from geojson import Point, Feature, FeatureCollection, dump
 
 NUM_DISTRICTS = 8
 DISTRICT_FNAME = 'CNG02'
@@ -342,9 +345,27 @@ for p in precincts:
     if p.district == None:
         orphanPrecincts.append(p)
         
+# Create a dictionary of lists to hold the precinct shapes for each district
+districtPrecinctShapes = {}
+for d in districts:
+    districtPrecinctShapes[d.districtNum] = []
+    
 for p1 in precincts:
     p1.sfData[DISTRICT_FNAME] = p1.district.districtNum
+    # Add shape to the appropriate district
+    districtPrecinctShapes[p1.district.districtNum].append(p1.geometry)
 writePrecinctsToCSV('RepublicanRedistricting1.csv',precincts)       
+
+# Now try creating GeoJSON file of new district outlines from merged precincts...
+features = []
+for d1 in districtPrecinctShapes:
+    mergedDistrict = unary_union(districtPrecinctShapes[d1])
+    features.append(mergedDistrict)
+    
+feature_collection = FeatureCollection(features)
+
+with open('RepublicanMajority.geojson', 'w') as f:
+   dump(feature_collection, f)
 
 # Print summary of districts
 print('District Summary')
