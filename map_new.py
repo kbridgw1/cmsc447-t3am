@@ -6,7 +6,7 @@ import pandas as pd
 import json
 from folium.features import GeoJson, GeoJsonTooltip
 
-m = folium.Map(location=[39.045753,-76.641273], zoom_start=8, width='65%', height='65%')
+m = folium.Map(location=[39.045753,-76.641273], zoom_start=8, width='75%', height='70%')
 ogeo = os.path.join('originalgeo.json')
 cgeo = os.path.join('merge.geojson')
 #percents = pd.read_csv(r"voterData/final_csv.csv")

@@ -2,7 +2,7 @@ import folium
 import os
 from folium.features import GeoJson, GeoJsonTooltip
 
-m = folium.Map(location=[39.045753,-76.641273], zoom_start=8, width='65%', height='65%')
+m = folium.Map(location=[39.045753,-76.641273], zoom_start=8, width='75%', height='70%')
 ogeo = os.path.join('swinggeo.json')
 cgeo = os.path.join('swingmerge.geojson')
 

@@ -1,6 +1,4 @@
 import json
-from functools import partial
-import pyproj
 import geojson
 import shapely
 from shapely.geometry import MultiPolygon, asShape
