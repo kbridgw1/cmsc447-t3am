@@ -9,7 +9,7 @@ from folium.features import GeoJson, GeoJsonTooltip
 m = folium.Map(location=[39.045753,-76.641273], zoom_start=8, width='65%', height='65%')
 ogeo = os.path.join('originalgeo.json')
 cgeo = os.path.join('merge.geojson')
-percents = pd.read_csv(r"voterData/final_csv.csv")
+#percents = pd.read_csv(r"voterData/final_csv.csv")
 
 folium.GeoJson(
     ogeo,
@@ -23,8 +23,8 @@ folium.GeoJson(
 ).add_to(m)
 
 tooltip = GeoJsonTooltip(
-    fields=["Label", "dem", "rep", "oth"],
-    aliases=["Congressional District: ", "Democrat Percentage: ", "Republican Percentage", "Other Percentage: "],
+    fields=["Label", "dem", "rep"],
+    aliases=["Congressional District: ", "Democrat Percentage: ", "Republican Percentage"],
     localize=True,
     sticky=False,
     labels=True,

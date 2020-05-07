@@ -4,7 +4,7 @@ from folium.features import GeoJson, GeoJsonTooltip
 
 m = folium.Map(location=[39.045753,-76.641273], zoom_start=8, width='65%', height='65%')
 ogeo = os.path.join('swinggeo.json')
-cgeo = os.path.join('voterData/congressional_districts.json')
+cgeo = os.path.join('swingmerge.geojson')
 
 folium.GeoJson(
     ogeo,
@@ -17,6 +17,20 @@ folium.GeoJson(
     }
 ).add_to(m)
 
+tooltip = GeoJsonTooltip(
+    fields=["cd", "dem", "rep"],
+    aliases=["Congressional District: ", "Democrat Percentage: ", "Republican Percentage"],
+    localize=True,
+    sticky=False,
+    labels=True,
+    style="""
+        background-color: #F0EFEF;
+        border: 2px solid black;
+        border-radius: 3px;
+        box-shadow: 3px;
+    """,
+)
+
 folium.GeoJson(
     cgeo,
     name='geojson_c',
@@ -24,7 +38,8 @@ folium.GeoJson(
         'fillColor': '#0000000',
         'color': 'white',
         'weight': 2,
-    }
+    },
+    tooltip=tooltip
 ).add_to(m)
 
 m.save("templates/swinggeo.html")

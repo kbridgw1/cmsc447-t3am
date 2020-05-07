@@ -4,7 +4,15 @@ from folium.features import GeoJson, GeoJsonTooltip
 
 m = folium.Map(location=[39.045753,-76.641273], zoom_start=8, width='65%', height='65%')
 ogeo = os.path.join('repgeo.json')
-cgeo = os.path.join('voterData/congressional_districts.json')
+cgeo = os.path.join('repmerge.geojson')
+
+def style_function(feature):
+    return {
+        'fillColor': '#0000000',
+        'color': 'white',
+        'weight': 2,
+    }
+
 
 folium.GeoJson(
     ogeo,
@@ -17,14 +25,25 @@ folium.GeoJson(
     }
 ).add_to(m)
 
+tooltip = GeoJsonTooltip(
+    fields=["cd", "dem", "rep"],
+    aliases=["Congressional District: ", "Democrat Percentage: ", "Republican Percentage"],
+    localize=True,
+    sticky=False,
+    labels=True,
+    style="""
+        background-color: #F0EFEF;
+        border: 2px solid black;
+        border-radius: 3px;
+        box-shadow: 3px;
+    """,
+)
+
 folium.GeoJson(
     cgeo,
     name='geojson_c',
-    style_function=lambda feature: {
-        'fillColor': '#0000000',
-        'color': 'white',
-        'weight': 2,
-    }
+    style_function=style_function,
+    tooltip=tooltip
 ).add_to(m)
 
 m.save("templates/repgeo.html")

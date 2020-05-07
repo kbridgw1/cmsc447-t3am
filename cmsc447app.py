@@ -33,9 +33,9 @@ def main():
     return render_template("cmsc447main.html")
 
 @app.route("/terms")
-def terms():
+def terms(): 
     return render_template("cmsc447terms.html")
-
+    
 @app.route("/rep")
 def rep():
     return render_template("main_rep.html")
