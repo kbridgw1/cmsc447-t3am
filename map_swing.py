@@ -1,3 +1,8 @@
+"""
+@author: Kristina Bridgwater
+
+This program is the same as map_new.py but for the swing distribution map
+"""
 import folium
 import os
 from folium.features import GeoJson, GeoJsonTooltip

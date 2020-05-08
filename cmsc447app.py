@@ -1,3 +1,10 @@
+"""
+@author: Kristina Bridgwater
+
+this program defines the different routes of the flask app and runs the entire application
+
+"""
+
 # imports
 from flask import Flask, render_template
 from flask_wtf import FlaskForm, RecaptchaField
@@ -31,6 +38,7 @@ def index():
 @app.route("/main", methods=["GET", "POST"])
 def main():
     return render_template("cmsc447main.html")
+
 
 @app.route("/terms")
 def terms(): 

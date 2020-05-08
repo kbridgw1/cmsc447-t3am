@@ -1,3 +1,8 @@
+"""
+@author: Kristina Bridgwater
+
+This program is the same as repmaj.py but for the swing distribution
+"""
 import json
 from functools import partial
 import pyproj
