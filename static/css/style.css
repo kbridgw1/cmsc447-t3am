@@ -1,3 +1,9 @@
+/*
+@author: Kristina Bridgwater
+
+This file defines the attributes of the html elements
+*/
+
 .header {
     text-align: center;
 }
@@ -98,4 +104,12 @@
     font-size: 30px;
 }
 
-
+.aside {
+    width: 22%;
+    padding-left: 5px;
+    margin-left: 5px;
+    float: right;
+    font-style: italic;
+    font-size: 11px;
+    background-color: lightgray;
+}

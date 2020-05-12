@@ -13,6 +13,7 @@ import math
 from array import array
 from geojson import Point, Feature, FeatureCollection, dump
 
+
 NUM_DISTRICTS = 8
 DISTRICT_FNAME = 'CNG02'
 DEM_FNAME = 'DEMOCRAT'
@@ -371,3 +372,4 @@ with open('RepublicanMajority.geojson', 'w') as f:
 print('District Summary')
 for d in districts:
     d.PrintSummary()     
+

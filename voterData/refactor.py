@@ -1,5 +1,9 @@
-import pandas as pd
+"""
+@author: Kristina Bridgwater
 
+This file refactors the precinct data to narrow it down to the final current distribution of the congressional districts
+"""
+import pandas as pd
 
 def myfunc(dataframe, num):
     dem_x = 0

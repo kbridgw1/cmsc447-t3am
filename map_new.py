@@ -1,3 +1,8 @@
+"""
+@author: Kristina Bridgwater
+
+This program creates the folium map of the current (democratic) distribution
+"""
 import geopandas as gpd
 import folium
 import os
@@ -6,11 +11,14 @@ import pandas as pd
 import json
 from folium.features import GeoJson, GeoJsonTooltip
 
-m = folium.Map(location=[39.045753,-76.641273], zoom_start=8, width='65%', height='65%')
+# create the map
+m = folium.Map(location=[39.045753,-76.641273], zoom_start=8, width='75%', height='70%')
+# define the geojson data for the precincts
 ogeo = os.path.join('originalgeo.json')
+# define the geojson data for the districts
 cgeo = os.path.join('merge.geojson')
-percents = pd.read_csv(r"voterData/final_csv.csv")
 
+# add the precinct layer to the map, color the precincts red or blue according to district
 folium.GeoJson(
     ogeo,
     name='geojson_o',
@@ -22,9 +30,10 @@ folium.GeoJson(
     }
 ).add_to(m)
 
+# define the tooltip function
 tooltip = GeoJsonTooltip(
-    fields=["Label", "dem", "rep", "oth"],
-    aliases=["Congressional District: ", "Democrat Percentage: ", "Republican Percentage", "Other Percentage: "],
+    fields=["Label", "dem", "rep"],
+    aliases=["Congressional District: ", "Democrat Percentage: ", "Republican Percentage"],
     localize=True,
     sticky=False,
     labels=True,
@@ -36,6 +45,7 @@ tooltip = GeoJsonTooltip(
     """,
 )
 
+# add the district layer to the map with the appropirate outlines
 folium.GeoJson(
     cgeo,
     name='geojson_c',
@@ -47,6 +57,7 @@ folium.GeoJson(
     tooltip=tooltip
 ).add_to(m)
 
+# save the map as an html
 m.save("templates/originalgeo.html")
 
 
